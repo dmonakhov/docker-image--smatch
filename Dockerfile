@@ -9,6 +9,7 @@ RUN \
 	ca-certificates \
 	curl \
 	git \
+	gawk \
 	kernel-package \
 	make \
 	libncurses5-dev \
@@ -27,8 +28,8 @@ RUN \
     mkdir -p /opt && \
     git clone -b dockerimg https://github.com/dmonakhov/smatch /opt/smatch && \
     cd /opt/smatch && \
-    make -j `nproc` && \
-    INSTALL_PREFIX=/ make install && \
+    INSTALL_PREFIX=/usr make -j `nproc` && \
+    INSTALL_PREFIX=/usr make install && \
     cd / && \
     chmod +x /entrypoint.sh && \
     mkdir -p /bld/src && \

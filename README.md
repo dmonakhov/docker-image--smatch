@@ -6,8 +6,12 @@ container with smatch (syntax checker for C)
 
 Run smatch kernel check and save result at the source directory
 ```
-docker run -v ./my_kernel_src:/bld/src -e BLD_RESULT=/bld/src \
+docker run -v /devel/my_kernel_src:/bld/src -e BLD_RESULT=/bld/src \
        dmonakhov/bld-smatch smatch_test_kernel
+
+# See check results
+ls -lh /devel/my_kernel_src/smatch.warn.log
+cat /devel/my_kernel_src/smatch.warn.env
 ```
 
 ## Environment variables

@@ -2,13 +2,12 @@
 set -e
 
 
-
-: ${BLD_SOURCE:=/bld/src}
-: ${BLD_RESULT:=/bld/result}
-: ${BLD_SMATCH_LOG:=${BLD_RESULT}/smatch.log}
-: ${BLD_SMATCH_WLOG:=${BLD_RESULT}/smatch.warn.log}
-: ${BLD_SMATCH_WLOG_ENV:=${BLD_RESULT}/smatch.warn.env}
-: ${BLD_ACTION:=${1}} # default action to first argument
+BLD_ACTION=${BLD_ACTION:-${1}} # default action to first argument
+BLD_SOURCE=${BLD_SOURCE:-/bld/src}
+BLD_RESULT=${BLD_RESULT:-/bld/result}
+BLD_SMATCH_LOG=${BLD_SMATCH_LOG:-${BLD_RESULT}/smatch.log}
+BLD_SMATCH_WLOG=${BLD_SMATCH_WLOG:-${BLD_RESULT}/smatch.warn.log}
+BLD_SMATCH_WLOG_ENV=${BLD_SMATCH_WLOG_ENV:-${BLD_RESULT}/smatch.warn.env}
 
 
 export PATH=$PATH:/usr/share/smatch/smatch_scripts
